@@ -34,24 +34,25 @@ print(np.unique(Y_train))
 
 print(np.unique(Y_test))
 
-
+#normalisation
 X_train = X_train/255
 X_test = X_test/255
 
 
 print(X_train[10])
 
+#defining model 
 model = keras.Sequential([
-                          keras.layers.Flatten(input_shape=(28,28)),
-                          keras.layers.Dense(50, activation='relu'),
-                          keras.layers.Dense(50, activation='relu'),
-                          keras.layers.Dense(10, activation='sigmoid')
+                          keras.layers.Flatten(input_shape=(28,28)),# flatten converts 2d image in 1d vector form
+                          keras.layers.Dense(50, activation='relu'),#hidden layers
+                          keras.layers.Dense(50, activation='relu'),#hidden layers
+                          keras.layers.Dense(10, activation='sigmoid')#output layer , 10 for different classes
 ])
 
-
+#optimiser - adjusting weights to reduce the error.
 model.compile(optimizer='adam',
-              loss = 'sparse_categorical_crossentropy',
-              metrics=['accuracy'])
+              loss = 'sparse_categorical_crossentropy', #The loss function tells the model how far its predictions are from the actual labels.
+              metrics=['accuracy'])# just to visulaise the data and its accuracy
 
 
 model.fit(X_train, Y_train, epochs=10)
