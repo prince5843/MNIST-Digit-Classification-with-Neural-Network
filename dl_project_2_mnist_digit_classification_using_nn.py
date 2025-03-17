@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import cv2
 from google.colab.patches import cv2_imshow
-from PIL import Image
 import tensorflow as tf
 tf.random.set_seed(3)
 from tensorflow import keras
